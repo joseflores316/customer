@@ -49,5 +49,7 @@ public class CustomerController {
     public ResponseEntity<Boolean> deleteCustomer(@PathVariable Long id) {
         return new ResponseEntity<>(customerService.delete(id), HttpStatus.OK);
     }
+    //cosas a borrar
+    
 
 }
