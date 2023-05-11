@@ -1,8 +1,8 @@
-package com.cronos.customer.mapper;
+package com.cronos.customer.infraestructure.rest.mapper;
 
 
-import com.cronos.customer.dto.CustomerDto;
-import com.cronos.customer.entity.CustomerEntity;
+import com.cronos.customer.infraestructure.entity.CustomerEntity;
+import com.cronos.customer.domain.models.CustomerDto;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

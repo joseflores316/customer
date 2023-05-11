@@ -1,4 +1,4 @@
-package com.cronos.customer.exception;
+package com.cronos.customer.infraestructure.exceptions;
 
 import java.io.Serializable;
 

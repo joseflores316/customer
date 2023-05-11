@@ -1,13 +1,12 @@
-package com.cronos.customer.service.impl;
+package com.cronos.customer.application.service.impl;
 
-import com.cronos.customer.EntityValidatorHelper;
-import com.cronos.customer.dto.CustomerDto;
-import com.cronos.customer.entity.CustomerEntity;
-import com.cronos.customer.mapper.CustomerMapper;
-import com.cronos.customer.repository.CustomerRepository;
-import com.cronos.customer.service.CustomerService;
+import com.cronos.customer.application.service.CustomerService;
+import com.cronos.customer.domain.models.CustomerDto;
+import com.cronos.customer.domain.ports.CustomerRepository;
+import com.cronos.customer.infraestructure.entity.CustomerEntity;
+import com.cronos.customer.infraestructure.helper.EntityValidatorHelper;
+import com.cronos.customer.infraestructure.rest.mapper.CustomerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,6 +38,7 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerDto findById(Long id) {
         return customerMapper.toDto(EntityValidatorHelper.validateIfExistsAndReturn(customerRepository, id));
     }
+
 
     @Override
     @Transactional

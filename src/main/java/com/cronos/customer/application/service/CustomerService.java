@@ -1,6 +1,6 @@
-package com.cronos.customer.service;
+package com.cronos.customer.application.service;
 
-import com.cronos.customer.dto.CustomerDto;
+import com.cronos.customer.domain.models.CustomerDto;
 
 import java.util.List;
 

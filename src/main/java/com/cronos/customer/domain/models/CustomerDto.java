@@ -1,4 +1,4 @@
-package com.cronos.customer.dto;
+package com.cronos.customer.domain.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

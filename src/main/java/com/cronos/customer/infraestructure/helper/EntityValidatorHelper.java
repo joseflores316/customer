@@ -1,7 +1,7 @@
-package com.cronos.customer;
+package com.cronos.customer.infraestructure.helper;
 
-import com.cronos.customer.enums.MessagesEnum;
-import com.cronos.customer.exception.CronosException;
+import com.cronos.customer.infraestructure.enums.MessagesEnum;
+import com.cronos.customer.infraestructure.exceptions.CronosException;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
