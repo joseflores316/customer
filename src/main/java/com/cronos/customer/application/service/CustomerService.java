@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface CustomerService {
 
-    List<CustomerDto> findAll();
+    CustomerDto create(CustomerDto customerDto);
 
     CustomerDto findById(Long id);
 
-    CustomerDto create(CustomerDto customerDto);
+    void deleteById(Long id);
+
+    List<CustomerDto> findAll();
 
     CustomerDto update(Long id, CustomerDto customerDto);
-
-    Boolean delete(Long id);
 }
