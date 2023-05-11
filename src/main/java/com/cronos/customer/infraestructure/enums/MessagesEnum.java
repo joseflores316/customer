@@ -1,4 +1,4 @@
-package com.cronos.customer.enums;
+package com.cronos.customer.infraestructure.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

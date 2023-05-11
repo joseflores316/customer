@@ -1,4 +1,4 @@
-package com.cronos.customer.entity;
+package com.cronos.customer.infraestructure.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
