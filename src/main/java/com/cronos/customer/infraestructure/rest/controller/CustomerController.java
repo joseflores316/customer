@@ -1,9 +1,8 @@
 package com.cronos.customer.infraestructure.rest.controller;
 
-import com.cronos.customer.domain.models.CustomerDto;
 import com.cronos.customer.application.service.CustomerService;
+import com.cronos.customer.domain.models.CustomerDto;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +18,6 @@ public class CustomerController {
 
     private final CustomerService customerService;
 
-    @Autowired
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
     }

@@ -14,13 +14,13 @@ import java.util.List;
 
 @Repository
 @Slf4j
-public class CustomerRepositoryMysql implements CustomerRepository {
+public class CustomerRepositoryMysqlImpl implements CustomerRepository {
     private final CustomerJpaRepositoryMySQL customerJpaRepositoryMySQL;
 
     @Autowired
     private CustomerMapper customerMapper;
 
-    public CustomerRepositoryMysql(CustomerJpaRepositoryMySQL customerJpaRepositoryMySQL) {
+    public CustomerRepositoryMysqlImpl(CustomerJpaRepositoryMySQL customerJpaRepositoryMySQL) {
         this.customerJpaRepositoryMySQL = customerJpaRepositoryMySQL;
     }
 
