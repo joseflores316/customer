@@ -14,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "customers")
+@Table(name = "CUSTOMERS")
 public class CustomerEntity implements Serializable {
 
     @Id

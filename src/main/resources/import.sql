@@ -1,0 +1,1 @@
+INSERT INTO CUSTOMERS (id, name, surname) VALUES (1, 'jose', 'aylas')
