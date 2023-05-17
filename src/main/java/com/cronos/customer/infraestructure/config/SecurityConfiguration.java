@@ -45,9 +45,9 @@ public class SecurityConfiguration {
 
         http.csrf().disable()
                 .authorizeHttpRequests((authz) -> authz
-                .antMatchers(NO_AUTH_LIST).permitAll()
-                .antMatchers(HttpMethod.POST, "/api/customer/**").authenticated()
-                .antMatchers(HttpMethod.GET, "/api/customer/**").hasRole("ADMIN")
+                .requestMatchers(NO_AUTH_LIST).permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/customer/**").authenticated()
+                .requestMatchers(HttpMethod.GET, "/api/customer/**").hasRole("ADMIN")
                 )
                 .httpBasic(withDefaults())
                 .formLogin(withDefaults());
