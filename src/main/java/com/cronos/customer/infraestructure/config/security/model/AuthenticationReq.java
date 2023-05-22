@@ -1,4 +1,4 @@
-package com.cronos.customer.infraestructure.config.security;
+package com.cronos.customer.infraestructure.config.security.model;
 
 import java.io.Serializable;
 

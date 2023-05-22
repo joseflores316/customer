@@ -1,4 +1,4 @@
-package com.cronos.customer.infraestructure.config.security;
+package com.cronos.customer.infraestructure.config.security.service;
 
 import java.util.List;
 import java.util.Set;

@@ -1,5 +1,6 @@
 package com.cronos.customer.infraestructure.config.security;
 
+import com.cronos.customer.infraestructure.config.security.filters.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

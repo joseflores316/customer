@@ -1,5 +1,6 @@
-package com.cronos.customer.infraestructure.config.security;
+package com.cronos.customer.infraestructure.config.security.filters;
 
+import com.cronos.customer.infraestructure.config.security.service.JwtUtilService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

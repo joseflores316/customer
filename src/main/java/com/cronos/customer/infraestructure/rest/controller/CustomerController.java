@@ -2,9 +2,9 @@ package com.cronos.customer.infraestructure.rest.controller;
 
 import com.cronos.customer.application.service.CustomerService;
 import com.cronos.customer.domain.models.CustomerDto;
-import com.cronos.customer.infraestructure.config.security.AuthenticationReq;
-import com.cronos.customer.infraestructure.config.security.JwtUtilService;
-import com.cronos.customer.infraestructure.config.security.TokenInfo;
+import com.cronos.customer.infraestructure.config.security.model.AuthenticationReq;
+import com.cronos.customer.infraestructure.config.security.service.JwtUtilService;
+import com.cronos.customer.infraestructure.config.security.model.TokenInfo;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
