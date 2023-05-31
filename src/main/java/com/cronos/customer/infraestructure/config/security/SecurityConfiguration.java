@@ -30,6 +30,14 @@ public class SecurityConfiguration {
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
 
+    private static final String[] AUTH_LIST = {
+            "/v3/api-docs/**",
+            "/api/v1/auth/**",
+            "/v3/api-docs.yaml",
+            "/swagger-ui.html",
+            "/swagger-ui/**",
+    "/swagger-config/**"};
+
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -37,9 +45,10 @@ public class SecurityConfiguration {
 
         http.csrf().disable()
                 .authorizeHttpRequests((auth) -> auth
-                .requestMatchers("/api/customer/publico/**").permitAll()
-                .requestMatchers("/api/customer/admin/**").hasRole("ADMIN")
-                .anyRequest().authenticated()
+                        .requestMatchers(AUTH_LIST).permitAll()
+                        .requestMatchers("/api/customer/publico/**").permitAll()
+                        .requestMatchers("/api/customer/admin/**").hasRole("ADMIN")
+                        .anyRequest().authenticated()
         )
                 .cors(withDefaults())
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
@@ -53,6 +62,16 @@ public class SecurityConfiguration {
 
 
         return http.build();
+
+
+//                http.csrf().disable().authorizeHttpRequests()
+//                .anyRequest()
+//                .authenticated()
+//                .and()
+//                .httpBasic(withDefaults())
+//                .formLogin(withDefaults());
+
+//        return http.build();
 
     }
 

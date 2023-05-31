@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.jdbc.Sql;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -27,6 +28,7 @@ class CustomerControllerIntegrationTest {
 
     }
 
+    @Sql({ "classpath:schema.sql", "classpath:data.sql" })
     @Test
     @Order(1)
     void getCustomers() throws JsonProcessingException {
@@ -42,7 +44,7 @@ class CustomerControllerIntegrationTest {
 
         assertTrue(json.contains("{\"id\":2,\"name\":\"pau\",\"surname\":\"aylas\""));
 
-        assertEquals(2, jsonNode.size());
+        assertEquals(3, jsonNode.size());
 
         assertEquals("pau", jsonNode.get(1).get("name").asText());
         assertEquals("aylas", jsonNode.get(1).get("surname").asText());

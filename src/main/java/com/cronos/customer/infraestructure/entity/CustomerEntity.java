@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.sql.Blob;
 
 @Data
 @AllArgsConstructor
@@ -27,4 +28,7 @@ public class CustomerEntity implements Serializable {
 //    @Column(name = "created_at")
 //    @Temporal(TemporalType.DATE)
 //    private Date createdAt;
+
+    @Lob
+    private byte[] fichero;
 }

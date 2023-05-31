@@ -2,9 +2,14 @@ package com.cronos.customer.infraestructure.rest.controller;
 
 import com.cronos.customer.application.service.CustomerService;
 import com.cronos.customer.domain.models.CustomerDto;
+import com.cronos.customer.infraestructure.config.Routes;
 import com.cronos.customer.infraestructure.config.security.model.AuthenticationReq;
-import com.cronos.customer.infraestructure.config.security.service.JwtUtilService;
 import com.cronos.customer.infraestructure.config.security.model.TokenInfo;
+import com.cronos.customer.infraestructure.config.security.service.JwtUtilService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Tag(name = "Customer API", description = "The Customer API")
 @RestController
 @RequestMapping("/api/customer")
 @Slf4j
@@ -44,16 +50,14 @@ public class CustomerController {
 
 
     @GetMapping
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "OK")})
+    @ApiResponse(responseCode = "500", description = "Internal Server Error")
+    @Operation(description = "Get all customers", summary = "Get all customers")
     public ResponseEntity<List<CustomerDto>> getCustomers() {
-
-         var auth =  SecurityContextHolder.getContext().getAuthentication();
-            log.info("User : ", auth.getPrincipal());
-            log.info("Roles : ", auth.getAuthorities());
-            log.info("Autenticado : ", auth.isAuthenticated());
         return new ResponseEntity<>(customerService.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(Routes.PATH_ID)
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<CustomerDto> getCustomerById(@PathVariable Long id) {
         return new ResponseEntity<>(customerService.findById(id),HttpStatus.OK);
@@ -65,14 +69,27 @@ public class CustomerController {
         return new ResponseEntity<>(customerService.create(customerDto), HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/{id}", consumes = "application/json", produces = "application/json")
+    @PutMapping(value = Routes.PATH_ID, consumes = "application/json", produces = "application/json")
     public ResponseEntity<CustomerDto> updateCustomer(@PathVariable Long id,@Valid @RequestBody CustomerDto customerDto) {
         return new ResponseEntity<>(customerService.update(id, customerDto), HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = Routes.PATH_ID)
     public void deleteCustomer(@PathVariable Long id) {
         this.customerService.deleteById(id);
+    }
+
+    @PostMapping(value = Routes.ENTITY_ROOT + Routes.ENTITY_ID_PATH + Routes.INSTANCE_ROOT + Routes.INSTANCE_ID_PATH + Routes.SUB_INSTANCE_ROOT + Routes.SUB_INSTANCE_ID_PATH + Routes.FILE_ROOT + Routes.FILE_ID_PATH)
+    public ResponseEntity<List<CustomerDto>> testCustomer(@PathVariable Long entityId, @PathVariable Long instanceId, @PathVariable Long subinstanceId, @PathVariable Long fileId) {
+
+        Long entityId1 = entityId;
+        Long instanceId1 = instanceId;
+        Long subInstanceId1 = subinstanceId;
+        Long fileId1 = fileId;
+
+
+
+        return new ResponseEntity<>(customerService.findAll(), HttpStatus.OK);
     }
 
 
