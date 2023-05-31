@@ -1,13 +1,13 @@
 package com.cronos.customer.infraestructure.entity;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Blob;
 
 @Data
 @AllArgsConstructor
@@ -28,4 +28,7 @@ public class CustomerEntity implements Serializable {
 //    @Column(name = "created_at")
 //    @Temporal(TemporalType.DATE)
 //    private Date createdAt;
+
+    @Lob
+    private byte[] fichero;
 }
